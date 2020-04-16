@@ -32,7 +32,7 @@ class FormDress extends Component {
       // console.log(this.color.current.value)
       let data = this.props.data;
       this.price.current.state.innerValue = data.price;
-      this.state.pic = "http://localhost:8080/" + data.photo;
+      this.state.pic = "http://localhost:8080/photos/" + data.photo;
       this.design.current.value = data.design.idDesign;
       this.color.current.value = data.color.idColor;
       this.texture.current.value = data.texture.idTexture;
@@ -235,7 +235,7 @@ class FormDress extends Component {
   render() {
     return (
       <MDBContainer>
-        {this.state.isSuccess ? <Redirect to="/admin/dresse" /> : ""}
+        ห{this.state.isSuccess ? <Redirect to="/admin/dresse" /> : ""}
 
         <form>
           <div className="form-group">

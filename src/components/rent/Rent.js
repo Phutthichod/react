@@ -52,7 +52,7 @@ export default function Rent() {
   }, [id]);
   return (
     <div className="container">
-        <h3 >การจองทั้งหมด</h3>
+        <h3 >การเช่าทั้งหมด</h3>
       <Table columns={columns} rows={data} />
     </div>
   );

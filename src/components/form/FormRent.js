@@ -115,7 +115,7 @@ const FormPage = (props) => {
       <MDBRow>
         <MDBCol md="12">
           <form>
-            <p className="h4 text-center mb-4">การจอง</p>
+            <p className="h4 text-center mb-4">การเช่า</p>
             <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
               วันที่มาเอา
             </label>
