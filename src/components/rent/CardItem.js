@@ -10,7 +10,7 @@ export default function CardItem(props) {
           margin: "4px",
         }}
         className="img-fluid"
-        src={"http://localhost:8080/"+props.data.photo}
+        src={"http://localhost:8080/photos/"+props.data.photo}
         waves
       />
       <div className="ml-1 mt-3  d-flex flex-column align-items-start">

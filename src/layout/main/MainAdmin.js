@@ -49,18 +49,19 @@ class MainAdminColor extends Component {
         modolDelete = <ModalDelete  name="dresses"  id={data.id_dress} title={data.type.type} />;
         break;
       case "color":
+        modolEdit =  <ModalGen method="put" id={data.idColor} data={data.color} name="color"  />
         modolDelete = <ModalDelete name="colors"  id={data.idColor} title={data.color} />; 
         break;
       case "design":
-        modolEdit =  <ModalGen method="put" data={data.design} name="design"  />
+        modolEdit =  <ModalGen method="put" id={data.idDesign} data={data.design} name="design"  />
         modolDelete = <ModalDelete name="designs"  id={data.idDesign} title={data.design} />; 
         break;
       case "texture":
-        modolEdit =  <ModalGen method="put" data={data.texture} name="texture"  />
+        modolEdit =  <ModalGen method="put" id={data.idTexture} data={data.texture} name="texture"  />
         modolDelete = <ModalDelete name="textures"  id={data.idTexture} title={data.texture} />; 
         break;
       case "type":
-        modolEdit =  <ModalGen method="put" data={data.type} name="type"  />
+        modolEdit =  <ModalGen method="put"  data={data.type} name="type"  />
         modolDelete = <ModalDelete name="types"  id={data.id_type} title={data.type} />; 
         break;
       default:

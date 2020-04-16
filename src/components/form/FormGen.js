@@ -15,23 +15,57 @@ export default function FormGen(props) {
         
         let name = props.name
         console.log(fname.current.state.innerValue)
-        const body = (name)=>{
-            switch(name){
-                case("type"):
-                    return {
-                        type: fname.current.state.innerValue
-                  }
-                case("design"):
-                    return {
-                        design: fname.current.state.innerValue
+        let body
+        if(props.method=="post"){
+             body = (name)=>{
+                switch(name){
+                    case("type"):
+                        return {
+                            type: fname.current.state.innerValue
+                      }
+                    case("design"):
+                        return {
+                            design: fname.current.state.innerValue
+                    }
+                    case("texture"):
+                        return {
+                            texture: fname.current.state.innerValue
+                    }
+                    case("color"):
+                        return {
+                          color: fname.current.state.innerValue,
+                    }
                 }
-                case("texture"):
-                    return {
-                        texture: fname.current.state.innerValue
+            }
+
+        }else{
+            body = (name)=>{
+                switch(name){
+                    case("type"):
+                        return {
+                            type: fname.current.state.innerValue,
+                            id_type:props.id
+                      }
+                    case("design"):
+                        return {
+                            design: fname.current.state.innerValue,
+                            idDesign:props.id
+                    }
+                    case("texture"):
+                        return {
+                            texture: fname.current.state.innerValue,
+                            idTexture:props.id
+                    }
+                    case("color"):
+                        return {
+                          color: fname.current.state.innerValue,
+                            idColor:props.id
+                    }
                 }
             }
         }
-        console.log(JSON.stringify(body(name)))
+        
+        console.log(JSON.stringify(body(name))+props.method)
         fetch("http://localhost:8080/"+name+"s",{
             method:props.method,
             headers: {

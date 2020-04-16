@@ -82,13 +82,13 @@ const rent = () => (
     </div>
   </div>
 );
-const detail = () => (
+const detail = (p) => (
   <div>
     <div className="Navbar">
       <Navbar />
     </div>
     <div className="Main mt-3">
-      <Detail />
+      <Detail id={p}/>
     </div>
   </div>
 );

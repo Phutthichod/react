@@ -8,15 +8,20 @@ import { render, wait } from "@testing-library/react";
 class FormDress extends Component {
   constructor(props) {
     super(props);
+    let pic
+    if(props.data){
+      pic = "http://localhost:8080/photos/" + props.data.photo ;
+    }else{
+      pic = ""
+    }
     this.state = {
       isSuccess: false,
       color: [],
       type: [],
       design: [],
       texture: [],
-      pic:
-      "http://localhost:8080/photos/" + this.props.data.photo,
-    };
+      pic:pic
+    }
     this.init();
     this.price = React.createRef();
     this.pic = React.createRef();
@@ -32,7 +37,6 @@ class FormDress extends Component {
       // console.log(this.color.current.value)
       let data = this.props.data;
       this.price.current.state.innerValue = data.price;
-      this.state.pic = "http://localhost:8080/photos/" + data.photo;
       this.design.current.value = data.design.idDesign;
       this.color.current.value = data.color.idColor;
       this.texture.current.value = data.texture.idTexture;
@@ -235,7 +239,7 @@ class FormDress extends Component {
   render() {
     return (
       <MDBContainer>
-        ห{this.state.isSuccess ? <Redirect to="/admin/dresse" /> : ""}
+        {this.state.isSuccess ? <Redirect to="/admin/dresse" /> : ""}
 
         <form>
           <div className="form-group">

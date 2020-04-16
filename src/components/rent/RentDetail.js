@@ -2,23 +2,23 @@ import React from "react";
 import Table from "../Admin/TableManage";
 import { useState, useEffect } from "react";
 
-export default function RentDetail() {
+export default function RentDetail(props) {
   const [data, setData] = useState([]);
   const [columns, setColums] = useState([]);
   const member = JSON.parse(localStorage.getItem("member"));
-  // console.log(member.id_user)
+  console.log(props)
   const id = member.id_user;
   const rents = () => {
     // {
 
-    fetch("http://localhost:8080/users/" + id + "/detailrents")
+    fetch("http://localhost:8080/rent/" + props.id.match.params.id + "/detailrents")
       .then(function (response) {
         return response.json();
       })
       .then(function (jsonData) {
+        console.log(jsonData)
         let detail = [];
-        let rows = jsonData.map((item) => {
-          let subItem = item.map((item2) => {
+        let rows = jsonData.map((item2) => {
             item2.total = item2.number * item2.dress.price;
             item2.price = item2.dress.price
             item2.type = item2.dress.type.type
@@ -26,8 +26,7 @@ export default function RentDetail() {
             return item2;
           });
             
-          return subItem;
-        });
+        
         setData(detail)
         // setData(rows)
         console.log(detail);

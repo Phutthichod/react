@@ -6,6 +6,9 @@ import {
 import swal from 'sweetalert'
 import { Redirect } from "react-router-dom";
 export default function ModalDelete(props) {
+    let link = "/rent"
+    if(props.name!="rents")
+        link = "/admin/"+props.name.substring(0, props.name.length - 1)
     const [isSubmit,setIsSubmit] = useState(false)
   const toggle = () => {
     swal({
@@ -44,7 +47,7 @@ export default function ModalDelete(props) {
   return (
     <Fragment>
         {
-         isSubmit?   <Redirect to={"/admin/"+props.name.substring(0, props.name.length - 1)} />:''
+         isSubmit?   <Redirect to={link} />:''
         }
       <MDBBtn onClick={toggle} color="danger lighten-2">
         <MDBIcon fas icon="eraser" />

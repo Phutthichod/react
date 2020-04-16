@@ -25,11 +25,11 @@ export default function Rent() {
           item.manage = (
             <div>
               <ModalEdit data={responseJson[i]} />
-              <ModalDelete title={"ลบการจอง Id "+item.id_rent} id={item.id_rent} name="rent" />
+              <ModalDelete title={"ลบการจอง Id "+item.id_rent} id={item.id_rent} name="rents" />
             </div>
           );
           item.detail = (
-            <NavLink to={"/rent/"+item.user.id_user+"/detail"}>
+            <NavLink to={"/rent/"+item.id_rent+"/detail"}>
               <MDBBtn color="info lighten-2">
                 <MDBIcon fas icon="info" />
               </MDBBtn>
