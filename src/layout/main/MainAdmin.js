@@ -94,8 +94,8 @@ class MainAdminColor extends Component {
       case "color":
         columns = [
           ["ชื่อ", "color"],
-          ["รหัสสี", "code"],
         ];
+        modolInsert = <ModalGen  method="post" data='' color="success lighten-2" name="color"  />
         break;
       case "design":
         columns = [["ชื่อ", "design"]];

@@ -17,7 +17,7 @@ import {
 } from "mdbreact";
 import "./style.css";
 class NavbarMain extends Component {
-  member = localStorage.getItem("member");
+  member = JSON.parse(localStorage.getItem("member"));
   name = this.member.name + "  " + this.member.surname;
   render() {
     return (
