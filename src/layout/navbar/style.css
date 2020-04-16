@@ -1,0 +1,16 @@
+
+.is-active{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.nav-color {
+    color: #fff;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+}
+.nav-color:hover{
+    color: rgba(255, 255, 255, 0.75);
+}
+.navbar-admin{
+    color: white;
+}
