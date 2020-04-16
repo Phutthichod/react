@@ -164,7 +164,9 @@ class FormDress extends Component {
     })
       .then(function (response) {
         console.log(response);
-        return response;
+        return response.json();
+      }).then(response=>{
+        console.log(response)
       }).catch(error => console.log('Authorization failed : ' + error.message));
       update()
   }
@@ -197,10 +199,12 @@ class FormDress extends Component {
           amount:amount
        }),
     })
-      .then(function (response) {
-        console.log(response);
-        return response;
-      }).catch(error => console.log('Authorization failed : ' + error.message));
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    }).then(response=>{
+      console.log(response)
+    }).catch(error => console.log('Authorization failed : ' + error.message));
       insert()
       console.log(JSON.stringify({
         photo:pic,

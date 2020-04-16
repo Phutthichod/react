@@ -4,6 +4,7 @@ import {
   MDBIcon,
 } from "mdbreact";
 import swal from 'sweetalert'
+import { Redirect } from "react-router-dom";
 export default function ModalDelete(props) {
   const toggle = () => {
     swal({
@@ -14,13 +15,18 @@ export default function ModalDelete(props) {
         dangerMode: true,
       })
       .then((willDelete) => {
-          fetch("http://localhost:8080/dresses/"+props.id,{method:'delete'
-        ,headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },})
+          fetch("http://localhost:8080/"+props.name+"/"+props.id,{
+              method:'delete',
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              }
+        
+          })
           .then((response)=>(response.json()))
-          .then((response)=>(response))
+          .then((response)=>{
+              console.log(response)
+          })
           .catch((error)=>{
               console.log(error.message)
           })

@@ -5,6 +5,7 @@ import Body from "../../components/Admin/TableManage";
 import ModalPage from "../../components/modal/Modal";
 import ModalEdit from "../../components/modal/ModalEdit";
 import ModalDelete from "../../components/modal/ModalDelete";
+import ModalGen from "../../components/modal/ModalEditGen"
 import "./main.css";
 class MainAdminColor extends Component {
   constructor(props) {
@@ -39,22 +40,28 @@ class MainAdminColor extends Component {
   }
   modalManage = (data) => {
     let name = this.props.name.match.params.name;
-    console.log(name);
+    console.log(data);
     let modolEdit = "";
     let modolDelete = "";
     switch (name) {
       case "dresse":
         modolEdit = <ModalEdit data={data} />;
-
-        modolDelete = <ModalDelete  id={data.id_dress} title={data.type.type} />;
+        modolDelete = <ModalDelete  name="dresses"  id={data.id_dress} title={data.type.type} />;
         break;
       case "color":
+        modolDelete = <ModalDelete name="colors"  id={data.idColor} title={data.color} />; 
         break;
       case "design":
+        modolEdit =  <ModalGen method="put" data={data.design} name="design"  />
+        modolDelete = <ModalDelete name="designs"  id={data.idDesign} title={data.design} />; 
         break;
       case "texture":
+        modolEdit =  <ModalGen method="put" data={data.texture} name="texture"  />
+        modolDelete = <ModalDelete name="textures"  id={data.idTexture} title={data.texture} />; 
         break;
       case "type":
+        modolEdit =  <ModalGen method="put" data={data.type} name="type"  />
+        modolDelete = <ModalDelete name="types"  id={data.id_type} title={data.type} />; 
         break;
       default:
     }
@@ -91,12 +98,15 @@ class MainAdminColor extends Component {
         break;
       case "design":
         columns = [["ชื่อ", "design"]];
+        modolInsert = <ModalGen  method="post" data='' color="success lighten-2" name="design"  />
         break;
       case "texture":
         columns = [["ชื่อ", "texture"]];
+        modolInsert = <ModalGen method="post" data='' color="success lighten-2" name="texture"  />
         break;
       case "type":
         columns = [["ชื่อ", "type"]];
+        modolInsert = <ModalGen method="post" data='' color="success lighten-2" name="type"  />
         break;
       default:
     }

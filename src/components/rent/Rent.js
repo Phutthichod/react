@@ -3,6 +3,8 @@ import Table from "../Admin/TableManage";
 import { MDBBtn, MDBIcon } from "mdbreact";
 import {NavLink} from 'react-router-dom'
 import { useState, useEffect } from "react";
+import ModalEdit from "../modal/ModalEditRent"
+import ModalDelete from "../modal/ModalDelete"
 export default function Rent() {
   const [data, setData] = useState([]);
   const [columns, setColumn] = useState([]);
@@ -19,7 +21,13 @@ export default function Rent() {
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson);
-        let rows = responseJson.map((item) => {
+        let rows = responseJson.map((item,i) => {
+          item.manage = (
+            <div>
+              <ModalEdit data={responseJson[i]} />
+              <ModalDelete />
+            </div>
+          );
           item.detail = (
             <NavLink to={"/rent/"+item.user.id_user+"/detail"}>
               <MDBBtn color="info lighten-2">

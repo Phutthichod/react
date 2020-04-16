@@ -32,7 +32,7 @@ class DressDetail extends Component {
                 <div className="detail">
                     <Image
                     className="mr-5"
-                    src={"http://localhost:8080/" + this.state.data.photo}
+                    src={"http://localhost:8080/photos/" + this.state.data.photo}
                     />
                     <Detail
                     onAdd={(data) => this.props.add(data)}

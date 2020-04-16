@@ -10,7 +10,7 @@ class CardItem extends Component{
         return(
             <div>
                 <MDBCard className="p-0 col-11">
-                <MDBCardImage top width="100%" src={"http://localhost:8080/"+this.props.data.photo} alt="Card image cap" />
+                <MDBCardImage top width="100%" src={"http://localhost:8080/photos/"+this.props.data.photo} alt="Card image cap" />
                 <MDBCardBody>
                     <MDBCardTitle>{this.props.data.type.type}</MDBCardTitle>
                     <MDBCardText>{"ราคา "+this.props.data.price+" บาท"}</MDBCardText>
