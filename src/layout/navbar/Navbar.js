@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import Action from "../../actions"
+import {connect} from "react-redux"
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -16,6 +18,12 @@ import {
   MDBIcon,
 } from "mdbreact";
 import "./style.css";
+const mapStateToProps = (state) => {
+  // console.log(state);
+  return {
+    cart: state.cart,
+  };
+};
 class Navbar extends Component {
    member = ()=>{
      let fmember
@@ -94,6 +102,7 @@ class Navbar extends Component {
                   to="/cart"
                 >
                   <MDBIcon fas icon="tshirt" />
+    <span class="badge badge-danger ml-2">{this.props.cart.cart.length}</span>
                 </NavLink>
               </MDBNavItem>
               <MDBNavItem className="d-flex align-items-center mr-2">
@@ -109,6 +118,7 @@ class Navbar extends Component {
                 <MDBDropdown>
                   <MDBDropdownToggle nav caret>
                     <MDBIcon icon="user" />
+                    
                   </MDBDropdownToggle>
                   <MDBDropdownMenu right className="dropdown-default">
                     <MDBIcon
@@ -138,4 +148,4 @@ class Navbar extends Component {
     );
   }
 }
-export default Navbar;
+export default connect(mapStateToProps, null)(Navbar);
