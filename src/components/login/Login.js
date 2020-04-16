@@ -1,11 +1,11 @@
 import React from 'react'
 import Form from '../form/FormLogin'
-import Navbar from '../../layout/navbar/Navbar'
+import Nav from "../../layout/navbar/Nav"
 export default function Login() {
     return (
         <div>
             <div className="mb-5">
-               <Navbar/> 
+               <Nav/> 
             </div>
             
             <Form/>

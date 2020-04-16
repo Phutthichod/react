@@ -25,7 +25,7 @@ export default function Rent() {
           item.manage = (
             <div>
               <ModalEdit data={responseJson[i]} />
-              <ModalDelete />
+              <ModalDelete title={"ลบการจอง Id "+item.id_rent} id={item.id_rent} name="rent" />
             </div>
           );
           item.detail = (

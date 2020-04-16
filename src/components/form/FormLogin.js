@@ -68,7 +68,7 @@ const FormPage = (props) => {
           <form>
             <p className="h4 text-center mb-4">Sign in</p>
             <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
-              Your email
+              Your username
             </label>
             <input
               ref={fusername}
@@ -86,7 +86,7 @@ const FormPage = (props) => {
               id="defaultFormLoginPasswordEx"
               className="form-control"
             />
-            {/* <Link to="/register"><small>register</small></Link> */}
+            <Link to="/register"><small>register</small></Link>
             <div className="text-center mt-4">
               <MDBBtn color="indigo" onClick={loginSubmit} type="button">
                 Login

@@ -67,7 +67,7 @@ const FormPage = () => {
                 <MDBInput
                     ref={fusername}
                     label="ชื่อผู้ใช้"
-                    icon="lock"
+                    icon="profile"
                     group
                     type="text"
                     validate
@@ -80,7 +80,7 @@ const FormPage = () => {
                   <MDBInput
                   ref={fname}
                     label="ชื่อ"
-                    icon="envelope"
+                    icon="profile"
                     group
                     type="text"
                     validate
@@ -90,7 +90,7 @@ const FormPage = () => {
                   <MDBInput
                     ref={fsurname}
                     label="นามสกุล"
-                    icon="exclamation-triangle"
+                    icon="profile"
                     group
                     type="text"
                     validate
@@ -100,7 +100,7 @@ const FormPage = () => {
                   <MDBInput
                   ref={fphone}
                     label="เบอร์มือถือ"
-                    icon="lock"
+                    icon="phone"
                     group
                     type="number"
                     validate
@@ -108,7 +108,7 @@ const FormPage = () => {
                   <MDBInput
                   ref={femail}
                     label="อีเมล์"
-                    icon="lock"
+                    icon="mail"
                     group
                     type="email"
                     validate
