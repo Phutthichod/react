@@ -19,19 +19,19 @@ export default function FormGen(props) {
         if(props.method=="post"){
              body = (name)=>{
                 switch(name){
-                    case("type"):
+                    case("types"):
                         return {
                             type: fname.current.state.innerValue
                       }
-                    case("design"):
+                    case("designs"):
                         return {
                             design: fname.current.state.innerValue
                     }
-                    case("texture"):
+                    case("textures"):
                         return {
                             texture: fname.current.state.innerValue
                     }
-                    case("color"):
+                    case("colors"):
                         return {
                           color: fname.current.state.innerValue,
                     }
@@ -41,22 +41,22 @@ export default function FormGen(props) {
         }else{
             body = (name)=>{
                 switch(name){
-                    case("type"):
+                    case("types"):
                         return {
                             type: fname.current.state.innerValue,
                             id_type:props.id
                       }
-                    case("design"):
+                    case("designs"):
                         return {
                             design: fname.current.state.innerValue,
                             idDesign:props.id
                     }
-                    case("texture"):
+                    case("textures"):
                         return {
                             texture: fname.current.state.innerValue,
                             idTexture:props.id
                     }
-                    case("color"):
+                    case("colors"):
                         return {
                           color: fname.current.state.innerValue,
                             idColor:props.id
@@ -65,32 +65,13 @@ export default function FormGen(props) {
             }
         }
         
-        console.log(JSON.stringify(body(name))+props.method)
-        fetch("http://localhost:8080/"+name+"s",{
-            method:props.method,
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                
-              },
-              body:JSON.stringify(body(name)),
-                
-        })
-        .then((response)=>{
-            
-            return response.json()})
-        .then(response=>{
-            console.log(response)
-            setIsSubmit(true)
-        })
-        .catch(error=>console.log(error.messes))
+        // console.log(JSON.stringify(body(name))+props.method)
+        props.update(name,props.method,body)
+        props.toggle()
     }
   return (
     <Fragment>
-        {isSubmit?
-       <Redirect to={"/admin/"+props.name} /> :''
-        
-        }
+       
       <div>
         <MDBInput ref={fname} valueDefault={props.data} label="ชื่อ" />
         
@@ -99,7 +80,7 @@ export default function FormGen(props) {
         <MDBBtn color="primary" onClick={()=>{save()}}>
           Save change
         </MDBBtn>
-        <MDBBtn color="warning">Close</MDBBtn>
+        <MDBBtn color="warning" onClick={()=>props.toggle()}>Close</MDBBtn>
       </MDBModalFooter>
     </Fragment>
   );

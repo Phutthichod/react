@@ -11,6 +11,10 @@ toggle = () => {
     modal: !this.state.modal
   });
 }
+save = async (data) => {
+  this.props.save(data);
+  this.toggle();
+};
 
 render() {
   return (
@@ -19,7 +23,7 @@ render() {
       <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
         <MDBModalHeader toggle={this.toggle}>{this.props.title}</MDBModalHeader>
         <MDBModalBody >
-          <Form />
+          <Form save={this.save} />
         </MDBModalBody>
         
     </MDBModal>

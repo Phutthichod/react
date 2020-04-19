@@ -11,6 +11,7 @@ export default function ModalDelete(props) {
         link = "/admin/"+props.name.substring(0, props.name.length - 1)
     const [isSubmit,setIsSubmit] = useState(false)
   const toggle = () => {
+    
     swal({
         title: "Are you sure?",
         text: props.title,
@@ -19,35 +20,24 @@ export default function ModalDelete(props) {
         dangerMode: true,
       })
       .then((willDelete) => {
-          fetch("http://localhost:8080/"+props.name+"/"+props.id,{
-              method:'delete',
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-              }
         
-          })
-          .then((response)=>(response.json()))
-          .then((response)=>{
-              console.log(response)
-          })
-          .catch((error)=>{
-              console.log(error.message)
-          })
+         
         if (willDelete) {
             setIsSubmit(true)
           swal(props.title+" ถูกลบแล้ว", {
             icon: "success",
           });
+          console.log(props.onDelete(props.id,props.name))
         } else {
           swal("ไม่ถูกลบ");
         }
       });
+      
   };
   return (
     <Fragment>
         {
-         isSubmit?   <Redirect to={link} />:''
+        //  isSubmit?   <Redirect to={link} />:''
         }
       <MDBBtn onClick={toggle} color="danger lighten-2">
         <MDBIcon fas icon="eraser" />

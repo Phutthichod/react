@@ -25,7 +25,7 @@ export default function ModalEditGen(props) {
       <MDBModal isOpen={modal} toggle={toggle}>
         <MDBModalHeader toggle={toggle}>{props.name}</MDBModalHeader>
         <MDBModalBody>
-          <Form method={props.method} data={props.data} id={props.id}  name={props.name} />
+          <Form update={props.update} toggle={toggle} method={props.method} data={props.data} id={props.id}  name={props.name} />
         </MDBModalBody>
       </MDBModal>
     </Fragment>

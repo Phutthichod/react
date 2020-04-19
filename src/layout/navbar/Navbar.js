@@ -102,7 +102,7 @@ class Navbar extends Component {
                   to="/cart"
                 >
                   <MDBIcon fas icon="tshirt" />
-    <span class="badge badge-danger ml-2">{this.props.cart.cart.length}</span>
+    <span className="badge badge-danger ml-2">{this.props.cart.cart.length}</span>
                 </NavLink>
               </MDBNavItem>
               <MDBNavItem className="d-flex align-items-center mr-2">

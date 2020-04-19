@@ -11,11 +11,11 @@ import {
 import "./style.css";
 class SidebarAdmin extends Component {
   loop = () => {
-    let p = [{ name: "ชุดแต่งงาน", link: "/admin/dresse" },
-          { name: "ชนิด", link: "/admin/type" },
-          { name:"เนื้อผ้า",link:"/admin/texture"},
-          { name: "สี", link: "/admin/color" },
-    { name: "การออกแบบ", link: "/admin/design" }];
+    let p = [{ name: "ชุดแต่งงาน", link: "/admin/dresses" },
+          { name: "ชนิด", link: "/admin/types" },
+          { name:"เนื้อผ้า",link:"/admin/textures"},
+          { name: "สี", link: "/admin/colors" },
+    { name: "การออกแบบ", link: "/admin/designs" }];
     for (let i = 0; i < p.length; i++) {
       p[i] = (
         <NavLink

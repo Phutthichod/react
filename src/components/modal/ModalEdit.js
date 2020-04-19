@@ -18,7 +18,10 @@ class ModalPage extends Component {
       modal: !this.state.modal,
     });
   };
-
+  update = async (data) => {
+    this.props.update(data);
+    this.toggle();
+  };
   render() {
     return (
       <Fragment>
@@ -30,7 +33,11 @@ class ModalPage extends Component {
             {this.props.title}
           </MDBModalHeader>
           <MDBModalBody>
-            <Form data={this.props.data}/>
+            <Form
+              update={this.update}
+              toggle={this.toggle}
+              data={this.props.data}
+            />
           </MDBModalBody>
         </MDBModal>
       </Fragment>

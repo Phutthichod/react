@@ -24,8 +24,8 @@ export default function Rent() {
         let rows = responseJson.map((item,i) => {
           item.manage = (
             <div>
-              <ModalEdit data={responseJson[i]} />
-              <ModalDelete title={"ลบการจอง Id "+item.id_rent} id={item.id_rent} name="rents" />
+              <ModalEdit onUpdate={update} data={responseJson[i]} />
+              <ModalDelete onDelete={del} title={"ลบการจอง Id "+item.id_rent} id={item.id_rent} name="rents" />
             </div>
           );
           item.detail = (
@@ -40,6 +40,67 @@ export default function Rent() {
         setData(responseJson);
       });
   };
+  const del = (id)=>{
+    fetch("http://localhost:8080/rents/"+id,{
+      method:'delete',
+
+  })
+  .then((response)=>(response.json()))
+  .then((response)=>{
+      console.log(response)
+     
+  })
+  .catch((error)=>{
+      console.log(error.message)
+      rents()
+  })
+  }
+  const update = async (date_recieve,date_return,date_time_rent,id_rent,user) => {
+    console.log("sdasd")
+    console.log(
+      JSON.stringify({
+        date_time_rent,
+        date_recieve,
+        date_return,
+        user,
+      })
+    );
+  
+    const insertRent = async (id_rent,date_time_rent, date_recieve, date_return) =>
+      await fetch("http://localhost:8080/rents", {
+        method: "put",
+
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            id_rent,
+          date_time_rent,
+          date_recieve,
+          date_return,
+          user,
+        }),
+      })
+        .then(function (response) {
+          // console.log(response.json());
+          // if (response.ok) {
+          //   alert("สร้าง user สำเร็จ");
+          // } else alert("สร้าง user ล้มเหลว");
+          return response.json();
+        })
+        .then(function (responseJSON) {
+          console.log(responseJSON);
+          rents()
+          return responseJSON;
+          
+        })
+        .catch((error) =>
+          console.log("Authorization failed : " + error.message)
+        );
+        let newRent = await insertRent(id_rent,date_time_rent, date_recieve, date_return);
+    }
+ 
   useEffect(() => {
     rents();
     let column = [

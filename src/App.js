@@ -14,7 +14,6 @@ import Rent from "./components/rent/Rent";
 import Detail from "./components/rent/RentDetail";
 import Cart from "./components/rent/RentInCart";
 import Folwer from "./components/flower";
-import Content from "./Content";
 import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
 import "./App.css";
 import Login from "./components/login/Login";

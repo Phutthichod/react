@@ -17,52 +17,12 @@ export default function ModalEditGen(props) {
     console.log("click");
     setModal(!modal);
   };
-  const update = async () => {
-    let date_time_rent = props.data.date_time_rent
-    let date_return = new Date(fdate_return.current.value).toISOString();
-    let date_recieve = new Date(fdate_recieve.current.value).toISOString();
-    let id_rent = props.data.id_rent
-    console.log(
-      JSON.stringify({
-        date_time_rent,
-        date_recieve,
-        date_return,
-        user,
-      })
-    );
-  
-    const insertRent = async (id_rent,date_time_rent, date_recieve, date_return) =>
-      await fetch("http://localhost:8080/rents", {
-        method: "put",
-
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            id_rent,
-          date_time_rent,
-          date_recieve,
-          date_return,
-          user,
-        }),
-      })
-        .then(function (response) {
-          // console.log(response.json());
-          // if (response.ok) {
-          //   alert("สร้าง user สำเร็จ");
-          // } else alert("สร้าง user ล้มเหลว");
-          return response.json();
-        })
-        .then(function (responseJSON) {
-          console.log(responseJSON);
-          return responseJSON;
-        })
-        .catch((error) =>
-          console.log("Authorization failed : " + error.message)
-        );
-        let newRent = await insertRent(id_rent,date_time_rent, date_recieve, date_return);
-    }
+ const update = ()=>{
+  props.onUpdate(new Date(fdate_recieve.current.value).toISOString(), 
+        new Date(fdate_return.current.value).toISOString(),props.data.date_time_rent,
+        props.data.id_rent,user)
+        toggle()
+ }
     useEffect(() => {
 
         // fdate_recieve.current.state.innerValue = props.data.date_recieve
@@ -104,10 +64,10 @@ export default function ModalEditGen(props) {
             defaultValue={props.data.date_return.substring(0, 10)}
           />
           <MDBModalFooter>
-        <MDBBtn color="primary" onClick={()=>{update()}}>
+        <MDBBtn color="primary" onClick={()=>update()} >
           Save change
         </MDBBtn>
-        <MDBBtn color="warning">Close</MDBBtn>
+        <MDBBtn color="warning" onClick={toggle} >Close</MDBBtn>
       </MDBModalFooter>
         </MDBModalBody>
         </MDBModal>

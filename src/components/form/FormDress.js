@@ -152,39 +152,17 @@ class FormDress extends Component {
         amount: amount,
       })
     );
-    let update = async () =>
-      await fetch("http://localhost:8080/dresses", {
-        method: "put",
-
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id_dress: id_dress,
-          color: color,
-          texture: texture,
-          type: type,
-          design: design,
-          price: price,
-          photo: pic,
-          amount: amount,
-        }),
-      })
-        .then(function (response) {
-          console.log(response);
-          return response.json();
-        })
-        .then((response) => {
-          this.setState({
-            isSuccess: true,
-          });
-          console.log(response+"setState");
-        })
-        .catch((error) =>
-          console.log("Authorization failed : " + error.message)
-        );
-    update();
+    let data = JSON.stringify({
+      id_dress: id_dress,
+      color: color,
+      texture: texture,
+      type: type,
+      design: design,
+      price: price,
+      photo: pic,
+      amount: amount,
+    })
+    this.props.update(data)
   };
   save = async () => {
     // console.log(this.color.current.value);
@@ -198,44 +176,23 @@ class FormDress extends Component {
     let pic = this.state.pic;
     // console.log(this.price)
     // console.log(pic)
-    let insert = async () =>
-      await fetch("http://localhost:8080/dresses", {
-        method: "post",
-
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          color: color,
-          texture: texture,
-          type: type,
-          design: design,
-          price: price,
-          photo: pic,
-          amount: amount,
-        }),
-      })
-        .then(function (response) {
-          console.log(response);
-          return response.json();
-        })
-        .then((response) => {
-          this.setState({
-            isSuccess: true,
-          });
-          console.log(response+"setState");
-        })
-        .catch((error) =>
-          console.log("Authorization failed : " + error.message)
-        );
-    insert();
+    let data = JSON.stringify({
+      color: color,
+      texture: texture,
+      type: type,
+      design: design,
+      price: price,
+      photo: pic,
+      amount: amount,
+    })
+    this.props.save(data)
     console.log(
       JSON.stringify({
         photo: pic,
       })
     );
   };
+  
   render() {
     return (
       <MDBContainer>
