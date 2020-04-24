@@ -18,14 +18,15 @@ import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
 import "./App.css";
 import Login from "./components/login/Login";
 import Register from "./components/login/Register";
+
 function App() {
   return (
-    <BrowserRouter>
+    
       <div className="App">
-        {checkLogin() ? (
+        {/* {checkLogin() ? (
           login()
-        ) : (
-          <Switch>
+        ) : ( */}
+          <Switch >
             <Route exact path="/" component={Index} />
             <Route path="/admin/:name" component={Admin} />
             <Route exact path="/dress" component={Index} />
@@ -38,9 +39,8 @@ function App() {
             <Route path="/dress/:id" component={dressDetail} />
             <Route component={NotFoundPage} />
           </Switch>
-        )}
+        {/* )} */}
       </div>
-    </BrowserRouter>
   );
 }
 const cart = () => (
