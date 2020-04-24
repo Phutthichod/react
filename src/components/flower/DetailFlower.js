@@ -11,7 +11,7 @@ export default function RentDetail() {
   const rents = () => {
     // {
 
-    fetch("http://localhost:8080/users/" + id + "/detailrents")
+    fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/users/" + id + "/detailrents")
       .then(function (response) {
         return response.json();
       })

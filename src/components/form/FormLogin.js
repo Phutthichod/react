@@ -17,7 +17,7 @@ const FormPage = (props) => {
       })
     );
     let check = async () =>
-      await fetch("http://localhost:8080/login", {
+      await fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/login", {
         method: "post",
         headers: {
           Accept: "application/json",

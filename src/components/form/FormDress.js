@@ -10,7 +10,7 @@ class FormDress extends Component {
     super(props);
     let pic
     if(props.data){
-      pic = "http://localhost:8080/photos/" + props.data.photo ;
+      pic = "https://dress-api-gyhnw6hpja-uc.a.run.app/photos/" + props.data.photo ;
     }else{
       pic = ""
     }
@@ -47,7 +47,7 @@ class FormDress extends Component {
 
   setColor = () => {
     let that = this;
-    fetch("http://localhost:8080/colors")
+    fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/colors")
       .then(function (response) {
         return response.json();
       })
@@ -60,7 +60,7 @@ class FormDress extends Component {
   };
   setType = () => {
     let that = this;
-    fetch("http://localhost:8080/types")
+    fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/types")
       .then(function (response) {
         return response.json();
       })
@@ -73,7 +73,7 @@ class FormDress extends Component {
   };
   setTexture = () => {
     let that = this;
-    fetch("http://localhost:8080/textures")
+    fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/textures")
       .then(function (response) {
         return response.json();
       })
@@ -85,7 +85,7 @@ class FormDress extends Component {
       });
   };
   getData = (name, id) => {
-    const p = fetch(`http://localhost:8080/${name}/${id}`)
+    const p = fetch(`https://dress-api-gyhnw6hpja-uc.a.run.app/${name}/${id}`)
       .then(function (response) {
         return response.json();
       })
@@ -97,7 +97,7 @@ class FormDress extends Component {
 
   setDesign = () => {
     let that = this;
-    fetch("http://localhost:8080/designs")
+    fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/designs")
       .then(function (response) {
         return response.json();
       })

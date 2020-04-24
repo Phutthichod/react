@@ -22,7 +22,7 @@ const FormPage = (props) => {
     const user = JSON.parse(localStorage.getItem("member"));
 
     const saveDetail = async (order, flower, number) =>
-        await fetch("http://localhost:8080/detailrents", {
+        await fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/detailrents", {
             method: "post",
             headers: {
                 Accept: "application/json",
@@ -61,7 +61,7 @@ const FormPage = (props) => {
         let totalprice = calTotal()
         let flower = props.flower.flower;
         const insertFlower = async (dateStart,dateEnd,totalprice) =>
-            await fetch("http://localhost:8080/rents", {
+            await fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/rents", {
                 method: "post",
 
                 headers: {

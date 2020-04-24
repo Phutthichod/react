@@ -25,7 +25,7 @@ class CollapseItem extends Component {
   }
   data = async (name) => {
     let that = this;
-    fetch("http://localhost:8080/" + name + "s")
+    fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/" + name + "s")
       .then(function (response) {
         return response.json();
       })
@@ -39,13 +39,13 @@ class CollapseItem extends Component {
    getData = async (value, name) => {
     let setFetch = null;
     let data = null
-    if (value != -1) setFetch = await fetch("http://localhost:8080/dresses/" + name+"/"+value)
+    if (value != -1) setFetch = await fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/dresses/" + name+"/"+value)
           .then((response) => response.json())
               .then((responseJSON) => {
               return responseJSON;
               });
     else{
-        setFetch = await fetch("http://localhost:8080/dresses")
+        setFetch = await fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/dresses")
         .then((response) => response.json())
       .then((responseJSON) => {
           data = responseJSON

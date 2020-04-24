@@ -22,7 +22,7 @@ const FormPage = (props) => {
   const user = JSON.parse(localStorage.getItem("member"));
 
   const saveDetail = async (rent, dress, number) =>
-    await fetch("http://localhost:8080/detailrents", {
+    await fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/detailrents", {
       method: "post",
       headers: {
         Accept: "application/json",
@@ -58,7 +58,7 @@ const FormPage = (props) => {
       })
     );
     const insertRent = async (date_time_rent, date_recieve, date_return) =>
-      await fetch("http://localhost:8080/rents", {
+      await fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/rents", {
         method: "post",
 
         headers: {

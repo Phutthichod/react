@@ -39,7 +39,7 @@ class MainAdminColor extends Component {
     console.log("column" + this.state.columns);
   }
   insertDress =  (data) =>{
-       fetch("http://localhost:8080/dresses", {
+       fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/dresses", {
         method: "post",
 
         headers: {
@@ -60,7 +60,7 @@ class MainAdminColor extends Component {
           console.log("Authorization failed : " + error.message)
         );}
   updateDress = (data) => {
-    fetch("http://localhost:8080/dresses", {
+    fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/dresses", {
       method: "put",
 
       headers: {
@@ -183,7 +183,7 @@ class MainAdminColor extends Component {
     );
   };
   update = (name, method, body) => {
-    fetch("http://localhost:8080/" + name, {
+    fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/" + name, {
       method: method,
       headers: {
         Accept: "application/json",
@@ -201,8 +201,8 @@ class MainAdminColor extends Component {
       .catch((error) => console.log(error.messes));
   };
   del = (id, name) => {
-    console.log("http://localhost:8080/" + name + "/" + id);
-    fetch("http://localhost:8080/" + name + "/" + id, {
+    console.log("https://dress-api-gyhnw6hpja-uc.a.run.app/" + name + "/" + id);
+    fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/" + name + "/" + id, {
       method: "delete",
     })
       .then((response) => response.json())
@@ -287,7 +287,7 @@ class MainAdminColor extends Component {
   }
   fetchData(name) {
     let that = this;
-    fetch(`http://localhost:8080/${name}`)
+    fetch(`https://dress-api-gyhnw6hpja-uc.a.run.app/${name}`)
       .then(function (response) {
         return response.json();
       })
@@ -304,7 +304,7 @@ class MainAdminColor extends Component {
           newData[i].manage = that.modalManage(data);
         }
 
-        fetch(`http://localhost:8080/${name}`)
+        fetch(`https://dress-api-gyhnw6hpja-uc.a.run.app/${name}`)
           .then(function (response) {
             return response.json();
           })
@@ -313,7 +313,7 @@ class MainAdminColor extends Component {
               newData[i].photo = (
                 <img
                   style={{ width: "50px" }}
-                  src={"http://localhost:8080/photos/" + jsonData[i].photo}
+                  src={"https://dress-api-gyhnw6hpja-uc.a.run.app/photos/" + jsonData[i].photo}
                 />
               );
               newData[i].manage = that.modalManage(jsonData[i]);

@@ -15,7 +15,7 @@ class DressDetail extends Component {
   }
   fetchData(id) {
     let that = this;
-    fetch(`http://localhost:8080/dresses/${id}`)
+    fetch(`https://dress-api-gyhnw6hpja-uc.a.run.app/dresses/${id}`)
       .then(function (response) {
         return response.json();
       })
@@ -32,7 +32,7 @@ class DressDetail extends Component {
                 <div className="detail">
                     <Image
                     className="mr-5"
-                    src={"http://localhost:8080/photos/" + this.state.data.photo}
+                    src={"https://dress-api-gyhnw6hpja-uc.a.run.app/photos/" + this.state.data.photo}
                     />
                     <Detail
                     onAdd={(data) => this.props.add(data)}

@@ -23,7 +23,7 @@ const FormPage = () => {
     const role = frole
     const email = femail.current.state.innerValue
 
-    let insert = async  ()=>await  fetch("http://localhost:8080/users", {
+    let insert = async  ()=>await  fetch("https://dress-api-gyhnw6hpja-uc.a.run.app/users", {
       method: "post",
 
       headers: {
